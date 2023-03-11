@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<style>
+  /* Center the form and add some padding */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Style the label and input elements */
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style the submit button */
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style the output paragraph */
+  p {
+    margin-bottom: 5px;
+  }
+</style>
+
+    <meta charset="utf-8">
+    <title>My App</title>
+  </head>
+  <body>
+    <form method="post">
+      {% csrf_token %}
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    {% if name %}
+      <p>Name: {{ name }}</p>
+    {% endif %}
+    {% if age %}
+      <p>Age: {{ age }}</p>
+    {% endif %}
+  </body>
+</html>
+
